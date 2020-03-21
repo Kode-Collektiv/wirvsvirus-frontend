@@ -2,19 +2,16 @@
   <div class="gastro-overview">
     <div v-for="gastro in gastronomy" :key="gastro.id">
       <md-card md-with-hover>
-        <md-card-header>
-          <md-card-header-text>
-            <div class="md-title">{{gastro.name}}</div>
-          </md-card-header-text>
-
-          <md-card-media md-medium>
-            <img :src="require('../assets/img/gastro_logos/' + gastro.logo)" alt="People" />
+        <md-card-area>
+          <md-card-media md-ratio="4:3">
+            <img :src="require('../assets/img/gastro_logos/' + gastro.logo)" />
           </md-card-media>
-        </md-card-header>
 
-        <md-card-actions>
-          <md-button>Zum Angebot</md-button>
-        </md-card-actions>
+          <md-card-header>
+            <div class="md-title gastro-title">{{gastro.name}}</div>
+            <div class="md-subhead">TRINKGELD | GUTSCHEIN | BESTELLEN</div>
+          </md-card-header>
+        </md-card-area>
       </md-card>
     </div>
   </div>
@@ -36,10 +33,18 @@
   vertical-align: top;
 }
 
+.md-card .md-title {
+  font-size: 1.5em;
+}
+
+.md-card .md-subhead {
+  font-size: 0.7em;
+}
+
 @media only screen and (max-width: 950px) {
   .gastro-overview {
-    padding-left: 5%;
-    padding-right: 5%;
+    padding-left: 2%;
+    padding-right: 2%;
   }
 
   .md-card {

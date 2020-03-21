@@ -1,28 +1,28 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <md-app md-waterfall md-mode="fixed">
+    <md-app-toolbar style="justify-content: center">
+      <h3 class="md-title" style="text-align: center;">GIESSEN TEILT AUS!</h3>
+    </md-app-toolbar>
+
+    <md-app-content>
+      <GastroOverview />
+    </md-app-content>
+  </md-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import GastroOverview from "./components/GastroOverview.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
+    GastroOverview
   }
-}
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.md-app {
+  height: 100vh;
 }
 </style>
