@@ -4,24 +4,21 @@
         <md-radio v-for="amount in amount_defaults" :key="amount.value"  :name='radio-test'
                     :id="'radio-' + amount.value"
                     :value='amount.value'
-                    v-model="selected_amount">{{getAmountString(amount.value)}}</md-radio>
+                    @change="amountChanged"
+                    v-model="selected_amount">{{getAmountString(amount.value)}}
+        </md-radio>
 
-        <md-radio   :name='radio-test'
-                    :id="'radio-other'"
-                    value='other'
-                    v-model="selected_amount">Anderer Betrag</md-radio>
-
+        <md-radio :name='radio-test'
+                  :id="'radio-other'"
+                  value='other'
+                  v-model="selected_amount">Anderer Betrag</md-radio>
 
         <div v-if="selected_amount==='other'"  class="other-amount-input">
-
             <md-field>
-                <label>Anderer Betrag zwischen 1,00€ und 100,00€</label>
-                <md-input v-model="other_amount"></md-input>
+                <label for="last-name">Anderer Betrag zwischen 1,00€ und 100,00€</label>
+                <md-input name="other_amount" id="other_amount" type="number" v-model.number="other_amount" />
+                <md-button class="md-raised md-primary" v-on:click="amountChanged(other_amount)">Bestätigen</md-button>
             </md-field>
-        </div>
-
-        <div>
-            <md-button class="md-raised md-primary" v-on:click="action">Help NOW!</md-button>
         </div>
     </div>
 
@@ -32,20 +29,14 @@
     export default {
         name: "VoucherAmountOptions",
         methods: {
+            getSelectedAmount: () => {
 
-            action: function () {
-                // `this` inside methods points to the Vue instance
-                alert('You just helped with spending ' + this.getSelectedAmount() + '!')
-                // `event` is the native DOM event
+                return this.data.select_other
+
             },
-
-            getSelectedAmount : function() {
-                if (this.selected_amount === "other") {
-                    return this.other_amount
-                } else {
-                    return this.selected_amount
-                }
-            }
+            amountChanged: function(amount) {
+                this.$emit('amount-selected', amount);
+            },
         },
         data: function () {
             return {
