@@ -1,5 +1,8 @@
 # frontend
 
+## Production build
+Simply run ``build.sh``.
+
 ## Project setup
 ```
 npm install
