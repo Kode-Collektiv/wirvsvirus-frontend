@@ -1,33 +1,27 @@
 <template>
-    <div class="voucher-amount-options">
-        <div class="amount-option" v-for="amount in amount_defaults" :key="amount.value">
-            <input
-                    :name='radio-amount'
+    <div layout="row" class="voucher-amount-options">
+
+        <md-radio v-for="amount in amount_defaults" :key="amount.value"  :name='radio-test'
                     :id="'radio-' + amount.value"
                     :value='amount.value'
-                    class="radio-custom"
-                    type="radio"
-                    v-model="selected_amount"
-            >
-            <label :for="'radio-'+ amount.value">{{getAmountString(amount.value)}}</label>
-        </div>
+                    v-model="selected_amount">{{getAmountString(amount.value)}}</md-radio>
 
-        <input
-                :name='radio-amount'
-                :id='radio-sonstiges'
-                class="radio-custom"
-                type="radio"
-                v-model="selected_amount"
-        >
-        <label :for='radio-sonstiges'>Anderer Betrag</label>
+        <md-radio   :name='radio-test'
+                    :id="'radio-other'"
+                    value='other'
+                    v-model="selected_amount">Anderer Betrag</md-radio>
 
-        <div v-if="!selected_amount"  class="other-amount-input">
-            <input v-model="other_amount"
-                   placeholder="Anderer Betrag zwischen 1,00€ und 100,00€">
+
+        <div v-if="selected_amount==='other'"  class="other-amount-input">
+
+            <md-field>
+                <label>Anderer Betrag zwischen 1,00€ und 100,00€</label>
+                <md-input v-model="other_amount"></md-input>
+            </md-field>
         </div>
 
         <div>
-            <button v-on:click="action">Help NOW!</button>
+            <md-button class="md-raised md-primary" v-on:click="action">Help NOW!</md-button>
         </div>
     </div>
 
@@ -46,11 +40,16 @@
             },
 
             getSelectedAmount : function() {
-                return this.selected_amount || this.other_amount
+                if (this.selected_amount === "other") {
+                    return this.other_amount
+                } else {
+                    return this.selected_amount
+                }
             }
         },
         data: function () {
             return {
+                select_other: false,
                 selected_amount: undefined,
                 other_amount: undefined,
                 amount_defaults: [
@@ -69,16 +68,4 @@
 </script>
 
 <style scoped>
-    .amount-option {
-        display: inline;
-        margin-right: 25px;
-    }
-
-    .other-amount-input{
-        margin-top: 25px;
-    }
-
-    .other-amount-input > input{
-        width: 500px;
-    }
 </style>
