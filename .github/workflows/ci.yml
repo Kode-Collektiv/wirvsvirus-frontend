@@ -14,7 +14,7 @@ jobs:
     - name: build and push image
       run: |
         docker login docker.pkg.github.com --username ${{ secrets.GITHUB_USERNAME }} --password ${{ secrets.GITHUB_PASSWORD }}
-        docker build . --file Dockerfile --tag docker.pkg.github.com/kode-collektiv/frontend:latest
-        docker push docker.pkg.github.com/kode-collektiv/frontend:latest
+        docker build . --file Dockerfile --tag docker.pkg.github.com/kode-collektiv/frontend/frontend:latest
+        docker push docker.pkg.github.com/kode-collektiv/frontend/frontend:latest
       env:
         CI: true
