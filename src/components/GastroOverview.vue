@@ -1,45 +1,61 @@
 <template>
   <div class="gastro-overview">
     <div v-for="gastro in gastronomy" :key="gastro.id">
-    <md-card  md-with-hover>
-      <md-card-header>
-        <md-card-header-text>
-          <div class="md-title">{{gastro.name}}</div>
-        </md-card-header-text>
+      <md-card md-with-hover>
+        <md-card-header>
+          <md-card-header-text>
+            <div class="md-title">{{gastro.name}}</div>
+          </md-card-header-text>
 
-        <md-card-media md-medium>
-          <img :src="require('../assets/img/gastro_logos/' + gastro.logo)" alt="People" />
-        </md-card-media>
-      </md-card-header>
+          <md-card-media md-medium>
+            <img :src="require('../assets/img/gastro_logos/' + gastro.logo)" alt="People" />
+          </md-card-media>
+        </md-card-header>
 
-      <md-card-actions>
-        <md-button>Zum Angebot</md-button>
-      </md-card-actions>
-    </md-card>
+        <md-card-actions>
+          <md-button>Zum Angebot</md-button>
+        </md-card-actions>
+      </md-card>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
 .gastro-overview {
-  padding: 20em;
+  padding-left: 20%;
+  padding-right: 20%;
   display: flex;
   flex-wrap: wrap;
-}
-
-.md-content {
-  width: 100px;
-  height: 100px;
-  margin: 24px;
-  display: flex;
-  align-items: center;
   justify-content: center;
 }
+
 .md-card {
-  width: 320px;
-  margin: 24px;
+  width: 20em;
+  margin: 2em;
   display: inline-block;
   vertical-align: top;
+}
+
+@media only screen and (max-width: 950px) {
+  .gastro-overview {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .md-card {
+    margin: 1em;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .gastro-overview {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .md-card {
+    margin: 0.5em;
+  }
 }
 </style>
 
