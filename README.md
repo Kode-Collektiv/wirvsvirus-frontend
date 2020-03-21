@@ -1,5 +1,10 @@
 # frontend
 
+![build](https://github.com/Kode-Collektiv/frontend/workflows/build/badge.svg)
+
+## Production build
+Simply run ``build.sh``.
+
 ## Project setup
 ```
 npm install
