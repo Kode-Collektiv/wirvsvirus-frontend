@@ -39,6 +39,7 @@ Bleibt gesund!
     {
         id: "3",
         name: "Geschmacksverkehr",
+        url: "http://online.fliphtml5.com/ctwix/sggp/",
         contact: {
             tel: "0641 20916995",
         },
@@ -65,6 +66,7 @@ Bleibt gesund!
     {
         id: "5",
         name: "Gutburgerlich",
+        url: "http://gutburgerlich.de",
         contact: {
             tel: "0641 2097059",
         },
@@ -78,6 +80,7 @@ Bleibt gesund!
     {
         id: "6",
         name: "Noams",
+        url: "https://noams.de/",
         contact: {
             tel: "0641 58098301",
         },
