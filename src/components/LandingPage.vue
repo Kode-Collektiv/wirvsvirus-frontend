@@ -25,9 +25,7 @@
 }
 
 .greeting-banner {
-  background: url(../assets/background/background.gif) no-repeat center center
-    fixed;
-  background-size: cover;
+  background: url(../assets/background/3.gif) repeat center ;
 }
 
 .logo {
