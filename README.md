@@ -1,9 +1,6 @@
-# frontend
+# Frontend
 
 ![build](https://github.com/Kode-Collektiv/frontend/workflows/build/badge.svg)
-
-## Production build
-Simply run ``build.sh``.
 
 ## Project setup
 ```
@@ -25,5 +22,7 @@ npm run build
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Build production Docker container with nginx
+```
+docker build . frontend:latest
+```
