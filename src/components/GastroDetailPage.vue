@@ -1,75 +1,68 @@
 <template>
-    <div class="gastro-detail">
+  <div id="gastro-detail">
+    <md-card>
+      <md-card-area md-inset>
+        <md-card-header id="card-header">
+          <div class="md-title" id="gastro-title">{{gastro.name}}</div>
+          <div class="md-subhead" v-if="gastro.contact">
+            <img :src="require('../assets/icons/location_on-24px.svg')" />
+            <span>{{gastro.address.street}} {{gastro.address.number}}</span>
+          </div>
+        </md-card-header>
 
-      <md-content class="gastro-name-banner md-accent">
-        <h1>{{gastro.name }}</h1>
-      </md-content>
-
-      <div class="gastro-detail-container" >
-
-
-        <div v-if="getGastroById(id).detail">
+        <md-card-content v-if="getGastroById(id).detail">
           <vue-markdown>{{gastro.detail}}</vue-markdown>
-        </div>
+        </md-card-content>
+      </md-card-area>
 
-        <div class="gastro-detail-contact">
-          <p v-if="gastro.contact.tel">Tel: {{gastro.contact.tel}}</p>
-          <p v-if="gastro.contact.email">Email: {{gastro.contact.email}}</p>
-          <p v-if="gastro.contact.instagram">Ig: {{gastro.contact.instagram}}</p>
-          <p v-if="gastro.contact.facebook">Facebook: {{gastro.contact.facebook}}</p>
-        </div>
-
-        <CheckoutStepper :payee="gastro.paypal_email"/>
-
-      </div>
-
-    </div>
-
+      <md-card-content>
+        <CheckoutStepper :payee="gastro.paypal_email" />
+      </md-card-content>
+    </md-card>
+  </div>
 </template>
 
 <script>
-    import VueMarkdown from 'vue-markdown'
-    import CheckoutStepper from "../components/CheckoutStepper.vue";
-    const gastronomy = require("../model/database");
-    
-    export default {
-        mounted() {
-            this.gastro = this.getGastroById(this.id);
-        },
-        name: "GastroDetailPage",
-        methods: {
-            getGastroById: function (id) {
-                return this.gastronomy.find(x => x.id == id);
-            }
-        },
-        components: {
-            CheckoutStepper,
-            VueMarkdown
-        },
-        props: ['id'],
-        data: function() {
-            return {
-                gastro: null,
-                gastronomy: gastronomy.gastronomy
-            };
-        }
+import VueMarkdown from "vue-markdown";
+import CheckoutStepper from "../components/CheckoutStepper.vue";
+const gastronomy = require("../model/database");
+
+export default {
+  mounted() {
+    this.gastro = this.getGastroById(this.id);
+  },
+  name: "GastroDetailPage",
+  methods: {
+    getGastroById: function(id) {
+      return this.gastronomy.find(x => x.id == id);
     }
+  },
+  components: {
+    CheckoutStepper,
+    VueMarkdown
+  },
+  props: ["id"],
+  data: function() {
+    return {
+      gastro: null,
+      gastronomy: gastronomy.gastronomy
+    };
+  }
+};
 </script>
 
 <style scoped>
+#gastro-detail {
+  padding: 2% 30% 2% 30%;
+  height: 100vh;
+}
 
-  .gastro-name-banner {
+#gastro-title {
+    font-size: 4em;
+    line-height: 2em;
+}
+
+#card-header {
     text-align: center;
-    line-height: 15em;
-    width: 100%;
-  }
-
-  .gastro-detail-container {
-    margin: 0 auto;
-    max-width: 800px;
-  }
-
-  .gastro-img-container {
-    text-align: center;
-  }
+}
 </style>
