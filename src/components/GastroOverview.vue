@@ -2,18 +2,24 @@
   <div class="gastro-overview">
     <div v-for="gastro in gastronomy" :key="gastro.id">
       <md-card md-with-hover>
-        <div @click="onClickGastro(gastro.id)">
-          <md-card-area>
-            <md-card-media md-ratio="4:3">
-              <img :src="require('../assets/img/gastro_logos/' + gastro.logo)"/>
-            </md-card-media>
 
-            <md-card-header>
-              <div class="md-title gastro-title">{{gastro.name}}</div>
-              <div class="md-subhead">TRINKGELD | GUTSCHEIN | BESTELLEN</div>
-            </md-card-header>
+          <md-card-area>
+            <div @click="onClickOrder(gastro.id)">
+              <md-card-media md-ratio="4:3">
+                <img :src="require('../assets/img/gastro_logos/' + gastro.logo)"/>
+              </md-card-media>
+
+              <md-card-header>
+                <div class="md-title gastro-title">{{gastro.name}}</div>
+                <div class="md-subhead">TRINKGELD | GUTSCHEIN | BESTELLEN</div>
+              </md-card-header>
+            </div>
+
+            <md-card-actions>
+              <md-button class="" @click="onClickGastro(gastro.id)">Gutschein | Trinkegeld</md-button>
+              <md-button class="md-primary" @click="onClickOrder(gastro.id)"> Bestellen</md-button>
+            </md-card-actions>
           </md-card-area>
-        </div>
       </md-card>
     </div>
   </div>
@@ -22,7 +28,7 @@
 <style lang="scss" scoped>
 
   .md-card {
-    width: 20em;
+    width: 21em;
     margin: 2em;
     display: inline-block;
     vertical-align: top;
@@ -78,6 +84,21 @@
             onClickGastro: function (id) {
                 this.$router.push({name: 'participants', params: { id: id}});
             },
+
+            onClickOrder: function (id) {
+
+                const gastro_url = this.getGastroById(id).url;
+
+                if(!gastro_url) {
+                    this.onClickGastro(id)
+                }else {
+                    window.open(gastro_url);
+                }
+            },
+
+            getGastroById: function (id) {
+                return this.gastronomy.find(x => x.id == id);
+            }
 
         },
         data: function () {

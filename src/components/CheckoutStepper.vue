@@ -14,10 +14,21 @@
             </md-step>
 
             <md-step id="fourth" md-label="Schritt 4: Schließe deine Zahlung ab" :md-editable="true" :md-done.sync="fourth">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non.</p>
-                <md-button class="md-raised md-primary" v-on:click="action">Abließen</md-button>
+              <Paypal :payee="this.payee" :amount="this.amount" :contact="this.contact" :type="this.type" @payment-accepted="paymentSuccess = true"/>
             </md-step>
         </md-steppers>
+
+        <md-dialog class="succes-dialog" :md-active.sync="paymentSuccess">
+          <md-dialog-content>
+            <h1>Lieber Supporter</h1>
+            <p>Wir senden dir eine Bestätigung für deine Zahlung per E-Mail.</p>
+            <p>Falls du einen Gutschein gekauft hast, wird dieser dir ebenfalls in einer seperaten Nachricht zugeschickt.</p>
+          </md-dialog-content>
+
+          <md-dialog-actions>
+            <md-button class="md-primary" @click="backToHome">Zurück zur Startseite</md-button>
+          </md-dialog-actions>
+        </md-dialog>
     </div>
 </template>
 
@@ -25,13 +36,16 @@
     import VoucherAmountOptions from './VoucherAmountOptions.vue'
     import BuyerDetails from './BuyerDetails.vue'
     import TipOrVoucherOption from './TipOrVoucherOption.vue'
+    import Paypal from './Paypal.vue'
 
     export default {
         name: 'CheckoutStepper',
+        props: ["payee"],
         components: {
             VoucherAmountOptions,
             BuyerDetails,
-            TipOrVoucherOption
+            TipOrVoucherOption,
+            Paypal
         },
         data: () => ({
             active: 'first',
@@ -42,7 +56,8 @@
             secondStepError: null,
             amount: null,
             contact: null,
-            type: null
+            type: null,
+            paymentSuccess: false
         }),
         methods: {
             receivedAmount: function(amount) {
@@ -60,28 +75,31 @@
                 this.setDone('third', 'fourth');
             },
 
-            action: function () {
-                // `this` inside methods points to the Vue instance
-                alert('You (' + this.contact.firstName +  ') just helped with spending ' + this.amount +  "€ as" + this.type + '!')
-                // `event` is the native DOM event
-            },
 
             setDone (id, index) {
-                this[id] = true
+                this[id] = true;
 
-                this.secondStepError = null
+                this.secondStepError = null;
 
                 if (index) {
                     this.active = index
                 }
             },
-            setError () {
+            setError  () {
                 this.secondStepError = 'This is an error!'
+            },
+            backToHome () {
+                this.$router.push({"name": "Home"})
             }
+
         }
     }
 </script>
 
 <style lang="scss" scoped>
+
+  .succes-dialog {
+    background-color: #c6deb7;
+  }
 
 </style>

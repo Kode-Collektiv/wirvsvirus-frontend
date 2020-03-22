@@ -2,25 +2,24 @@
     <div class="gastro-detail">
 
       <md-content class="gastro-name-banner md-accent">
-        <h1>{{getGastroById(id).name }}</h1>
+        <h1>{{gastro.name }}</h1>
       </md-content>
 
       <div class="gastro-detail-container" >
 
 
         <div v-if="getGastroById(id).detail">
-          <vue-markdown>{{getGastroById(id).detail}}</vue-markdown>
+          <vue-markdown>{{gastro.detail}}</vue-markdown>
         </div>
 
         <div class="gastro-detail-contact">
-          <p v-if="getGastroById(id).contact.tel">Tel: {{getGastroById(id).contact.tel}}</p>
-          <p v-if="getGastroById(id).contact.email">Email: {{getGastroById(id).contact.email}}</p>
-          <p v-if="getGastroById(id).contact.instagram">Ig: {{getGastroById(id).contact.instagram}}</p>
-          <p v-if="getGastroById(id).contact.facebook">Facebook: {{getGastroById(id).contact.facebook}}</p>
+          <p v-if="gastro.contact.tel">Tel: {{gastro.contact.tel}}</p>
+          <p v-if="gastro.contact.email">Email: {{gastro.contact.email}}</p>
+          <p v-if="gastro.contact.instagram">Ig: {{gastro.contact.instagram}}</p>
+          <p v-if="gastro.contact.facebook">Facebook: {{gastro.contact.facebook}}</p>
         </div>
 
-
-        <CheckoutStepper/>
+        <CheckoutStepper :payee="gastro.paypal_email"/>
 
       </div>
 
@@ -34,6 +33,9 @@
     const gastronomy = require("../model/database");
     
     export default {
+        mounted() {
+            this.gastro = this.getGastroById(this.id);
+        },
         name: "GastroDetailPage",
         methods: {
             getGastroById: function (id) {
@@ -47,6 +49,7 @@
         props: ['id'],
         data: function() {
             return {
+                gastro: null,
                 gastronomy: gastronomy.gastronomy
             };
         }
