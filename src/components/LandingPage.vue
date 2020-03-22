@@ -1,13 +1,13 @@
 <template>
   <div class="landing-page">
     <div class="greeting-banner">
-      <img class="logo" :src="require('../assets/logo/helpnoweatlater.svg')" />
       <div class="title">
         <span>
           Jetzt bestellen.
           <br />Gleich oder später genießen.
         </span>
       </div>
+      <img class="logo" :src="require('../assets/logo/fist.svg')" />
       <div class="subtitle">
         <p>Mit dieser Seite bieten wir dir nicht nur die Möglichkeit dein gewohntes und geliebtes Essen zu bestellen. Du kannst auch mit dem Kauf eines Gutscheins dir oder bedürftigen Mitmenschen einen Gefallen tun oder mit einem Trinkgeld die lokale Gastronomie unterstützen.</p>
       </div>
@@ -33,7 +33,6 @@
 .logo {
   height: 10em;
   width: 10em;
-  padding-top: 2em;
   background-color: #c6deb7;
 }
 
