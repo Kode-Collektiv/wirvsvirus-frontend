@@ -2,23 +2,18 @@
   <div class="gastro-overview">
     <div v-for="gastro in gastronomy" :key="gastro.id">
       <md-card md-with-hover>
+          <div @click="onClickGastro(gastro.id)">
+            <md-card-area>
 
-          <md-card-area>
-            <div @click="onClickOrder(gastro.id)">
-              <md-card-media md-ratio="4:3">
-                <img :src="require('../assets/img/gastro_logos/' + gastro.logo)"/>
-              </md-card-media>
+                <md-card-media md-ratio="4:3">
+                  <img :src="require('../assets/img/gastro_logos/' + gastro.logo)"/>
+                </md-card-media>
 
-              <md-card-header>
-                <div class="md-title gastro-title">{{gastro.name}}</div>
-              </md-card-header>
-            </div>
-
-            <md-card-actions>
-              <md-button class="md-primary md-raised" @click="onClickOrder(gastro.id)"> Bestellen</md-button>
-              <md-button class="md-primary md-raised" @click="onClickGastro(gastro.id)">Gutschein | Trinkegeld</md-button>
-            </md-card-actions>
-          </md-card-area>
+                <md-card-header>
+                  <div class="md-title gastro-title">{{gastro.name}}</div>
+                </md-card-header>
+            </md-card-area>
+          </div>
       </md-card>
     </div>
   </div>
@@ -83,22 +78,6 @@
             onClickGastro: function (id) {
                 this.$router.push({name: 'participants', params: { id: id}});
             },
-
-            onClickOrder: function (id) {
-
-                const gastro_url = this.getGastroById(id).url;
-
-                if(!gastro_url) {
-                    this.onClickGastro(id)
-                }else {
-                    window.open(gastro_url);
-                }
-            },
-
-            getGastroById: function (id) {
-                return this.gastronomy.find(x => x.id == id);
-            }
-
         },
         data: function () {
             return {
