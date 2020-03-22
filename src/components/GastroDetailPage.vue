@@ -1,7 +1,7 @@
 <template>
   <div id="gastro-detail">
     <md-card>
-      <md-card-area md-inset>
+      <md-card-area md-inset id="card-area">
         <md-card-header id="card-header">
           <div class="md-title" id="gastro-title">{{gastro.name}}</div>
           <div class="md-subhead" v-if="gastro.contact">
@@ -13,6 +13,7 @@
         <md-card-content v-if="getGastroById(id).detail">
           <vue-markdown>{{gastro.detail}}</vue-markdown>
         </md-card-content>
+        <OrderButton :id="id" />
       </md-card-area>
 
       <md-card-content>
@@ -25,6 +26,7 @@
 <script>
 import VueMarkdown from "vue-markdown";
 import CheckoutStepper from "../components/CheckoutStepper.vue";
+import OrderButton from "../components/OrderButton.vue";
 const gastronomy = require("../model/database");
 
 export default {
@@ -39,7 +41,8 @@ export default {
   },
   components: {
     CheckoutStepper,
-    VueMarkdown
+    VueMarkdown,
+    OrderButton
   },
   props: ["id"],
   data: function() {
@@ -53,16 +56,40 @@ export default {
 
 <style scoped>
 #gastro-detail {
-  padding: 2% 30% 2% 30%;
+  padding: 2% 25% 2% 25%;
   height: 100vh;
 }
 
-#gastro-title {
-    font-size: 4em;
-    line-height: 2em;
+#card-area {
+  text-align: center;
+  padding-bottom: 1em;
 }
 
-#card-header {
-    text-align: center;
+#gastro-title {
+  font-size: 4em;
+  line-height: 2em;
+}
+
+#card-title {
+  text-align: center;
+}
+
+@media only screen and (max-width: 950px) {
+  #gastro-detail {
+    padding: 2% 10% 2% 10%;
+    height: 100vh;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #gastro-detail {
+    padding: 5% 3% 3% 2%;
+    height: 100vh;
+  }
+
+  #gastro-title {
+    font-size: 2em;
+    line-height: 2em;
+  }
 }
 </style>
