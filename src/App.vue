@@ -1,20 +1,19 @@
 <template>
   <div id="app">
-    <md-toolbar id="navbar">
-      <h3 class="title">GIESSEN TEILT AUS!</h3>
-    </md-toolbar>
-
-    <div class="main">
+    <NavBar />
+    <div id="main">
       <router-view></router-view>
     </div>
   </div>
 </template>
 
 <script>
+import NavBar from "./components/NavBar.vue";
 
 export default {
   name: "App",
   components: {
+    NavBar
   }
 };
 </script>
@@ -32,21 +31,7 @@ body {
   background-color: #fbffef;
 }
 
-.md-app {
-  height: 100vh;
-}
-
-#navbar {
-  overflow: hidden;
-  justify-content: center;
-  background-color: #95ac87;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 100;
-}
-
-.main {
+#main {
   margin-top: 50px;
 }
 </style>
