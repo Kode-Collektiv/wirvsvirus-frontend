@@ -5,7 +5,7 @@
                 <VoucherAmountOptions @amount-selected="receivedAmount"/>
             </md-step>
 
-            <md-step id="second" md-label="Schritt 2: Gib uns deinen Kontaktdaten" :md-error="secondStepError" :md-editable="true" :md-done.sync="second">
+            <md-step id="second" md-label="Schritt 2: Gib uns deine Kontaktdaten" :md-error="secondStepError" :md-editable="true" :md-done.sync="second">
                 <BuyerDetails @contact-selected="receivedContact"/>
             </md-step>
 

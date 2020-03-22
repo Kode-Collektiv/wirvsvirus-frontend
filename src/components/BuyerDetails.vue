@@ -17,7 +17,7 @@
 
                 <div class="md-layout-item md-small-size-100">
                     <md-field :class="getValidationClass('lastName')">
-                        <label for="last-name">Nachnahme</label>
+                        <label for="last-name">Nachname</label>
                         <md-input name="last-name" id="last-name" autocomplete="family-name"
                                   v-model="form.lastName" :disabled="sending"/>
                         <span class="md-error"
