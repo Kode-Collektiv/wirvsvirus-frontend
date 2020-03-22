@@ -11,6 +11,8 @@
 </template>
 
 <script>
+    import axios from 'axios';
+
     export default {
         mounted() {
             const paypal_srcipt = paypal; // eslint-disable-line no-undef
@@ -65,9 +67,17 @@
                     return false
                 }
 
-                // send to server
-                // todo
+                const body =  JSON.stringify({
+                    orderID: data.orderID
+                });
 
+                try {
+                    const res = await axios.post("http://code_collective_backend/api/payment", body);
+                    console.log(res.data);
+                } catch (err) {
+                    const errors = err.response.data.errors;
+                    console.log(errors)
+                }
 
                 this.success = true;
                 this.$emit('payment-accepted', details);
