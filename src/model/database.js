@@ -1,5 +1,6 @@
 const gastronomy = [
     {
+        id: "1",
         name: "BAZAAR",
         contact: {
             tel: "017631355841",
@@ -13,6 +14,7 @@ const gastronomy = [
         logo: "bazaar-logo-1.jpg"
     },
     {
+        id: "2",
         name: "Bärenstark",
         contact: {
             tel: "0641 97274191",
@@ -25,6 +27,7 @@ const gastronomy = [
         logo: "baerenstark.png"
     },
     {
+        id: "3",
         name: "Geschmacksverkehr",
         contact: {
             tel: "0641 20916995",
@@ -37,6 +40,7 @@ const gastronomy = [
         logo: "geschmacksverkehr-e1584715926544-1024x1024.jpg"
     },
     {
+        id: "4",
         name: "heisszeit",
         contact: {
             tel: "0641 58778002",
@@ -49,6 +53,7 @@ const gastronomy = [
         logo: "heisszeit.png"
     },
     {
+        id: "5",
         name: "Gutburgerlich",
         contact: {
             tel: "0641 2097059",
@@ -61,6 +66,7 @@ const gastronomy = [
         logo: "gutburgerlich_logo_schwarz-1024x1024.png"
     },
     {
+        id: "6",
         name: "Noams",
         contact: {
             tel: "0641 58098301",
@@ -73,6 +79,7 @@ const gastronomy = [
         logo: "noams.png"
     },
     {
+        id: "7",
         name: "Kussmund",
         contact: {
             facebook: "https://www.facebook.com/KussmundGiessen/",
@@ -85,6 +92,7 @@ const gastronomy = [
         logo: "kussmund-1024x1024.png"
     },
     {
+        id: "8",
         name: "Reynabi",
         contact: {
             facebook: "https://www.facebook.com/KussmundGiessen/",
@@ -98,3 +106,7 @@ const gastronomy = [
         logo: "reynabi.png"
     },
 ];
+
+export {
+    gastronomy
+}

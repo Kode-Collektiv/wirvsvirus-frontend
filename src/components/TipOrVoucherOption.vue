@@ -2,7 +2,7 @@
     <div class="tip-or-voucher-option">
         <h3>Du kannst auf mehrere Arten die lokalen Gastronomen in diesen schwierigen Zeiten unterstützen.</h3>
         <md-card md-with-hover>
-            <div @click="onClickCard('ti')">
+            <div @click="onClickCard('tip')">
                 <md-card-header>
                     <div class="md-title">Unterstütze uns mit einer Spende</div>
                 </md-card-header>
