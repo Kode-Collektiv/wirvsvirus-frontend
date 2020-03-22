@@ -49,6 +49,6 @@ body {
 }
 
 .main {
-  margin-top: 55px;
+  margin-top: 50px;
 }
 </style>
