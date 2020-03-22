@@ -1,9 +1,7 @@
 <template>
   <div id="app">
     <NavBar />
-    <div id="main">
-      <router-view></router-view>
-    </div>
+    <router-view />
   </div>
 </template>
 
@@ -29,9 +27,6 @@ body {
 #app {
   font-family: "Muli", sans-serif;
   background-color: #fbffef;
-}
-
-#main {
-  margin-top: 50px;
+  margin-top: 45px;
 }
 </style>

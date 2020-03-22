@@ -2,7 +2,9 @@
   <md-toolbar id="navbar">
     <div class="md-toolbar-row">
       <div class="md-toolbar-section-start">
-        Hello
+        <md-button class="md-icon-button" id="back-button" v-show="showBackButton">
+          <img :src="require('../assets/icons/arrow_back-24px.svg')" />
+        </md-button>
       </div>
       <h3 class="md-title" style="flex: 1">GIESSEN TEILT AUS!</h3>
     </div>
@@ -22,6 +24,14 @@
 
 <script>
 export default {
-  name: "NavBar"
+  name: "NavBar",
+  computed: {
+    showBackButton() {
+      if (this.$route.path !== "/") {
+        return true;
+      }
+      return false;
+    }
+  }
 };
 </script>
