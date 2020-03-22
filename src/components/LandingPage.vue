@@ -40,7 +40,7 @@
   font-size: 4em;
   letter-spacing: 0.1em;
   line-height: 1.2em;
-  padding-top: 0.5em;
+  padding-top: 1.5em;
   text-align: center;
 }
 
@@ -79,13 +79,13 @@
 
   .title {
     font-size: 2em;
-    padding: 0.5em 0 0.5em 0;
+    padding: 1em 0 1em 0;
   }
 
   .subtitle {
-    font-size: 1em;
+    font-size: 1.2em;
     line-height: 1em;
-    padding: 1em 5em 1em 5em;
+    padding: 1em 3em 1em 3em;
   }
 }
 </style>
