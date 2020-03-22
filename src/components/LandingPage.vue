@@ -33,6 +33,7 @@
   height: 8em;
   width: 8em;
   color: white;
+  padding-top: 1em;
 }
 
 .title {
@@ -45,7 +46,7 @@
 .subtitle {
   font-size: 1.5em;
   text-align: center;
-  padding: 1em 15em 1em 15em;
+  padding: 1em 20em 1em 20em;
 }
 
 @media only screen and (max-width: 950px) {
@@ -56,7 +57,7 @@
 
   .subtitle {
     font-size: 1em;
-    padding: 1em 2em 1em 2em;
+    padding: 1em 10em 1em 10em;
   }
 }
 
@@ -74,7 +75,7 @@
   .subtitle {
     font-size: 1em;
     line-height: 1em;
-    padding: 1em 2em 1em 2em;
+    padding: 1em 5em 1em 5em;
   }
 }
 </style>
