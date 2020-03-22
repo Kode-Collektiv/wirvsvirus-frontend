@@ -5,18 +5,16 @@
     </md-toolbar>
 
     <div class="main">
-      <LandingPage />
+      <router-view></router-view>
     </div>
   </div>
 </template>
 
 <script>
-import LandingPage from "./components/LandingPage.vue";
 
 export default {
   name: "App",
   components: {
-    LandingPage
   }
 };
 </script>
