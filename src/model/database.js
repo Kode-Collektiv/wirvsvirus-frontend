@@ -2,6 +2,7 @@ const gastronomy = [
     {
         id: "1",
         name: "BAZAAR",
+        paypal_email: "paypal@bazaar.de",
         contact: {
             tel: "017631355841",
             instagram: "bazaar_giessen"
@@ -26,6 +27,7 @@ Weiterhin finden Sie bei uns eine grosse Auswahl an Haushaltswaren (von Gaskoche
     {
         id: "2",
         name: "Bärenstark",
+        paypal_email: "paypal@baerenstark.de",
         contact: {
             tel: "0641 97274191",
         },
@@ -49,6 +51,7 @@ Bleibt gesund!
     {
         id: "3",
         name: "Geschmacksverkehr",
+        paypal_email: "paypal@geschmacksverkehr.de",
         url: "http://online.fliphtml5.com/ctwix/sggp/",
         contact: {
             tel: "0641 20916995",
@@ -63,6 +66,7 @@ Bleibt gesund!
     {
         id: "4",
         name: "heisszeit",
+        paypal_email: "paypal@shop.de",
         contact: {
             tel: "0641 58778002",
         },
@@ -76,6 +80,7 @@ Bleibt gesund!
     {
         id: "5",
         name: "Gutburgerlich",
+        paypal_email: "paypal@gutburgerlich.de",
         url: "http://gutburgerlich.de",
         contact: {
             tel: "0641 2097059",
@@ -90,6 +95,7 @@ Bleibt gesund!
     {
         id: "6",
         name: "Noams",
+        paypal_email: "paypal@noams.de",
         url: "https://noams.de/",
         contact: {
             tel: "0641 58098301",
@@ -104,6 +110,7 @@ Bleibt gesund!
     {
         id: "7",
         name: "Kussmund",
+        paypal_email: "paypal@kussmund.de",
         contact: {
             facebook: "https://www.facebook.com/KussmundGiessen/",
         },
@@ -117,6 +124,7 @@ Bleibt gesund!
     {
         id: "8",
         name: "Reynabi",
+        paypal_email: "paypal@reynabi.de",
         contact: {
             facebook: "https://www.facebook.com/KussmundGiessen/",
             tel: "0641 2797720"
@@ -131,6 +139,7 @@ Bleibt gesund!
     {
         id: "9",
         name: "Pizza Wolke",
+        paypal_email: "paypal@pizzawolke.de",
         url: "http://pizza-wolke.de/",
         contact: {
             tel: "0641 9717727"
@@ -145,6 +154,7 @@ Bleibt gesund!
     {
         id: "10",
         name: "Tom & Sally’s",
+        paypal_email: "paypal@tunds.de",
         detail: `        
 # Hey liebe Salat-Fans da draußen,
 

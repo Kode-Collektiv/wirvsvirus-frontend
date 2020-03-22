@@ -17,23 +17,12 @@
 
             paypal_srcipt.Buttons({
                 fundingSource: paypal_srcipt.FUNDING.PAYPAL,
-                createOrder: function(data, actions) {
-                    // This function sets up the details of the transaction, including the amount and line item details.
-                    return actions.order.create({
-                        purchase_units: [{
-                            amount: {
-                                value: '13.37'
-                            },
-                            payee: {
-                                email_address: 'test.payeee@gmail.com'
-                            }
-                        }]
-                    });
-                },
+                createOrder: this.createOrder,
                 onApprove: this.onApprove,
             }).render('#paypal-button-container');
         },
         name: "Paypal",
+        props: ["amount", "contact", "type", "payee"],
         data: function () {
             return {
                 success: false,
@@ -41,6 +30,35 @@
             }
         },
         methods: {
+
+            createOrder: function(data, actions) {
+                // This function sets up the details of the transaction, including the amount and line item details.
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            currency_code: "EUR",
+                            value: this.amount.toString(),
+
+                        },
+                        custom_id: this.type,
+                        description: this.type,
+                        payee: {
+                            email_address: this.payee
+                        }
+                    }],
+                    payer: {
+                        name: {
+                            given_name: this.contact.firstName,
+                            surname: this.contact.lastName,
+                        },
+                        email_address: this.contact.email
+                    },
+                    application_context: {
+                        locale: "de-DE"
+                    }
+                });
+            },
+
             async onApprove(data, actions) {
                 const details = await actions.order.capture();
                 if (details.status !== 'COMPLETED') {
@@ -49,6 +67,8 @@
 
                 // send to server
                 // todo
+
+
                 this.success = true;
                 this.$emit('payment-accepted', details);
             },
