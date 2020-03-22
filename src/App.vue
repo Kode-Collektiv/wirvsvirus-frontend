@@ -16,8 +16,18 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 @import url("https://fonts.googleapis.com/css?family=Muli:300&display=swap");
+
+@import "~vue-material/dist/theme/engine";
+
+@include md-register-theme("default", (
+  primary: #95ac87,
+  accent: #95ac87,
+  theme: light
+));
+
+@import "~vue-material/dist/theme/all";
 
 html,
 body {
