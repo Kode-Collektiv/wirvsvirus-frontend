@@ -2,7 +2,7 @@
   <md-toolbar id="navbar">
     <div class="md-toolbar-row">
       <div class="md-toolbar-section-start">
-        <md-button class="md-icon-button" id="back-button" v-show="showBackButton">
+        <md-button :to="{ path: '/' }" class="md-icon-button" v-show="showBackButton">
           <img :src="require('../assets/icons/arrow_back-24px.svg')" />
         </md-button>
       </div>
