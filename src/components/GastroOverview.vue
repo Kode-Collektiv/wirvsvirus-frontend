@@ -11,13 +11,12 @@
 
               <md-card-header>
                 <div class="md-title gastro-title">{{gastro.name}}</div>
-                <div class="md-subhead">TRINKGELD | GUTSCHEIN | BESTELLEN</div>
               </md-card-header>
             </div>
 
             <md-card-actions>
-              <md-button class="" @click="onClickGastro(gastro.id)">Gutschein | Trinkegeld</md-button>
-              <md-button class="md-primary" @click="onClickOrder(gastro.id)"> Bestellen</md-button>
+              <md-button class="md-primary md-raised" @click="onClickOrder(gastro.id)"> Bestellen</md-button>
+              <md-button class="md-primary md-raised" @click="onClickGastro(gastro.id)">Gutschein | Trinkegeld</md-button>
             </md-card-actions>
           </md-card-area>
       </md-card>
@@ -43,8 +42,8 @@
   }
 
   .gastro-overview {
-    padding-left: 20%;
-    padding-right: 20%;
+    padding-left: 10%;
+    padding-right: 10%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

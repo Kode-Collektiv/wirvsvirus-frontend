@@ -40,7 +40,7 @@
   font-size: 4em;
   letter-spacing: 0.1em;
   line-height: 1.2em;
-  padding-top: 1.5em;
+  padding: 1.5em 5% 0 5%;
   text-align: center;
 }
 
@@ -51,7 +51,7 @@
 .subtitle {
   font-size: 1.5em;
   text-align: center;
-  padding: 0 20em 1em 20em;
+  padding: 0 20% 1em 20%;
   text-align: center;
 }
 
