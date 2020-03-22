@@ -1,14 +1,16 @@
 <template>
   <div class="landing-page">
     <div class="greeting-banner">
-      <img class="logo" :src="require('../assets/logo/helpnoweatlater.svg')" />
       <div class="title">
-        Jetzt bestellen.
-        <br />Gleich oder später genießen.
+        <span>
+          Jetzt bestellen.
+          <br />Gleich oder später genießen.
+        </span>
       </div>
-      <div
-        class="subtitle"
-      >Mit dieser Seite bieten wir dir nicht nur die Möglichkeit dein gewohntes und geliebtes Essen zu bestellen. Du kannst auch mit dem Kauf eines Gutscheins dir oder bedürftigen Mitmenschen einen Gefallen tun oder mit einem Trinkgeld die lokale Gastronomie unterstützen.</div>
+      <img class="logo" :src="require('../assets/logo/fist.svg')" />
+      <div class="subtitle">
+        <p>Mit dieser Seite bieten wir dir nicht nur die Möglichkeit dein gewohntes und geliebtes Essen zu bestellen. Du kannst auch mit dem Kauf eines Gutscheins dir oder bedürftigen Mitmenschen einen Gefallen tun oder mit einem Trinkgeld die lokale Gastronomie unterstützen.</p>
+      </div>
     </div>
 
     <GastroOverview />
@@ -23,30 +25,38 @@
 }
 
 .greeting-banner {
-  color: white;
-  background: url(../assets/background/starfield.gif) no-repeat center center
+  background: url(../assets/background/background.gif) no-repeat center center
     fixed;
   background-size: cover;
 }
 
 .logo {
-  height: 8em;
-  width: 8em;
-  color: white;
-  padding-top: 1em;
+  height: 10em;
+  width: 10em;
+  background-color: #c6deb7;
 }
 
 .title {
   font-size: 4em;
   letter-spacing: 0.1em;
-  line-height: 1em;
-  padding-top: 0.5em;
+  line-height: 1.2em;
+  padding-top: 1.5em;
+  text-align: center;
+}
+
+.title span {
+  background-color: #c6deb7;
 }
 
 .subtitle {
   font-size: 1.5em;
   text-align: center;
-  padding: 1em 20em 1em 20em;
+  padding: 0 20em 1em 20em;
+  text-align: center;
+}
+
+.subtitle p {
+  background-color: #c6deb7;
 }
 
 @media only screen and (max-width: 950px) {
@@ -69,13 +79,13 @@
 
   .title {
     font-size: 2em;
-    padding: 0.5em 0 0.5em 0;
+    padding: 1em 0 1em 0;
   }
 
   .subtitle {
-    font-size: 1em;
+    font-size: 1.2em;
     line-height: 1em;
-    padding: 1em 5em 1em 5em;
+    padding: 1em 3em 1em 3em;
   }
 }
 </style>

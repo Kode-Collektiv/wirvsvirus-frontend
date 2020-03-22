@@ -21,7 +21,11 @@ const routes = [
 ]
 
 const router = new VueRouter({
-    routes
+    routes,
+    scrollBehavior(to, from, savedPosition) { // eslint-disable-line no-unused-vars
+        return { x: 0, y: 0 }
+    },
+    mode: 'history'
 })
 
 export default router

@@ -1,26 +1,33 @@
 <template>
   <div id="app">
-    <md-toolbar id="navbar">
-      <h3 class="title">GIESSEN TEILT AUS!</h3>
-    </md-toolbar>
-
-    <div class="main">
-      <router-view></router-view>
-    </div>
+    <NavBar />
+    <router-view />
   </div>
 </template>
 
 <script>
+import NavBar from "./components/NavBar.vue";
 
 export default {
   name: "App",
   components: {
+    NavBar
   }
 };
 </script>
 
-<style>
+<style lang="scss">
 @import url("https://fonts.googleapis.com/css?family=Muli:300&display=swap");
+
+@import "~vue-material/dist/theme/engine";
+
+@include md-register-theme("default", (
+  primary: #95ac87,
+  accent: #95ac87,
+  theme: light
+));
+
+@import "~vue-material/dist/theme/all";
 
 html,
 body {
@@ -29,24 +36,7 @@ body {
 
 #app {
   font-family: "Muli", sans-serif;
-}
-
-.md-app {
-  height: 100vh;
-}
-
-#navbar {
-  overflow: hidden;
-  justify-content: center;
-  background-color: black;
-  color: white;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 100;
-}
-
-.main {
-  margin-top: 50px;
+  background-color: #fbffef;
+  margin-top: 45px;
 }
 </style>

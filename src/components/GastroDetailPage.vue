@@ -21,14 +21,6 @@
 
         <CheckoutStepper :payee="gastro.paypal_email"/>
 
-        <div class="gastro-img-container">
-          <img
-                  :src="require('../assets/img/gastro_logos/' + gastro.logo)"
-                  height="300x"
-                  width="300px"
-          >
-        </div>
-
       </div>
 
     </div>
