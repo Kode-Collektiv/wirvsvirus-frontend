@@ -22,15 +22,6 @@
 
         <CheckoutStepper/>
 
-        <div class="gastro-img-container">
-          <img
-                  :src="require('../assets/img/gastro_logos/' + getGastroById(id).logo)"
-                  height="300x"
-                  width="300px"
-          >
-
-        </div>
-
       </div>
 
     </div>
