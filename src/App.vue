@@ -29,6 +29,7 @@ body {
 
 #app {
   font-family: "Muli", sans-serif;
+  background-color: #fbffef;
 }
 
 .md-app {
@@ -38,8 +39,7 @@ body {
 #navbar {
   overflow: hidden;
   justify-content: center;
-  background-color: black;
-  color: white;
+  background-color: #95ac87;
   position: fixed;
   top: 0;
   width: 100%;
