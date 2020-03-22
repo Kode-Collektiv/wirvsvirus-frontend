@@ -23,7 +23,7 @@ export default {
 
 @include md-register-theme("default", (
   primary: #95ac87,
-  accent: #95ac87,
+  accent: #c6deb7,
   theme: light
 ));
 
