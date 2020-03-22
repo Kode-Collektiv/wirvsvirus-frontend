@@ -24,6 +24,16 @@ const gastronomy = [
             street: "Katharinengasse",
             number: "14"
         },
+        detail: `
+Hallo Bärenfreunde,
+
+zusammen mit Gießen teilt aus versuchen wir Euch in naher Zukunft einen Lieferdienst anzubieten, um die schwere Zeit für uns alle ein wenig zu verschönern.
+
+Sobald wir nähere Infos haben, geben wir Euch diese via Instagram & Facebook, sowie über Gießen teilt aus, weiter.
+
+Bleibt gesund!
+        
+        `,
         logo: "baerenstark.png"
     },
     {

@@ -1,20 +1,18 @@
 <template>
-  <GastroOverview/>
+  <LandingPage/>
 </template>
 
 <script>
-    import GastroOverview from "../components/GastroOverview.vue";
+    import LandingPage from "../components/LandingPage.vue";
 
     export default {
         name: "Home",
         components: {
-            GastroOverview
+            LandingPage
         }
     };
 </script>
 
 <style>
-  .md-app {
-    height: 100vh;
-  }
+
 </style>
