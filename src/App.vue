@@ -1,36 +1,54 @@
 <template>
-  <md-app md-waterfall md-mode="fixed">
-    <md-app-toolbar style="justify-content: center">
-      <h3 class="md-title" style="text-align: center;">GIESSEN TEILT AUS!</h3>
-    </md-app-toolbar>
+  <div id="app">
+    <md-toolbar id="navbar">
+      <h3 class="title">GIESSEN TEILT AUS!</h3>
+    </md-toolbar>
 
-    <md-app-content>
-      <router-view/>
-    </md-app-content>
-  </md-app>
+    <div class="main">
+      <LandingPage />
+    </div>
+  </div>
 </template>
 
-<style lang="scss">
-  #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
+<script>
+import LandingPage from "./components/LandingPage.vue";
+
+export default {
+  name: "App",
+  components: {
+    LandingPage
   }
+};
+</script>
 
-  #nav {
-    padding: 30px;
+<style>
+@import url("https://fonts.googleapis.com/css?family=Muli:300&display=swap");
 
-    a {
-      font-weight: bold;
-      color: #2c3e50;
+html,
+body {
+  font-family: "Muli", sans-serif;
+}
 
-      &.router-link-exact-active {
-        color: #42b983;
-      }
-    }
-  }
+#app {
+  font-family: "Muli", sans-serif;
+}
 
+.md-app {
+  height: 100vh;
+}
 
+#navbar {
+  overflow: hidden;
+  justify-content: center;
+  background-color: black;
+  color: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.main {
+  margin-top: 55px;
+}
 </style>

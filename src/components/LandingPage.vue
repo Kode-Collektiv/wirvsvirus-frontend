@@ -24,7 +24,8 @@
 
 .greeting-banner {
   color: white;
-  background:  url(../assets/background/starfield.gif) no-repeat center center fixed; 
+  background: url(../assets/background/starfield.gif) no-repeat center center
+    fixed;
   background-size: cover;
 }
 
@@ -73,7 +74,7 @@
   .subtitle {
     font-size: 1em;
     line-height: 1em;
-    padding: 0em 0em 1em 0em;
+    padding: 1em 2em 1em 2em;
   }
 }
 </style>

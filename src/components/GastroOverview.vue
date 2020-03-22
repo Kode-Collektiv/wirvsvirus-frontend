@@ -56,11 +56,12 @@
     }
   }
 
-  @media only screen and (max-width: 600px) {
-    .gastro-overview {
-      padding-left: 0;
-      padding-right: 0;
-    }
+@media only screen and (max-width: 600px) {
+  .gastro-overview {
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 1em;
+  }
 
     .md-card {
       margin: 0.5em;
