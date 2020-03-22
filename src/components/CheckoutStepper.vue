@@ -14,13 +14,12 @@
             </md-step>
 
             <md-step id="fourth" md-label="Schritt 4: Schließe deine Zahlung ab" :md-editable="true" :md-done.sync="fourth">
-              <Paypal @payment-accepted="paymentSuccess = true"/>
+              <Paypal :payee="this.payee" :amount="this.amount" :contact="this.contact" :type="this.type" @payment-accepted="paymentSuccess = true"/>
             </md-step>
         </md-steppers>
 
         <md-dialog class="succes-dialog" :md-active.sync="paymentSuccess">
           <md-dialog-content>
-
             <h1>Lieber Supporter</h1>
             <p>Wir senden dir eine Bestätigung für deine Zahlung per E-Mail.</p>
             <p>Falls du einen Gutschein gekauft hast, wird dieser dir ebenfalls in einer seperaten Nachricht zugeschickt.</p>
@@ -30,9 +29,6 @@
             <md-button class="md-primary" @click="backToHome">Zurück zur Startseite</md-button>
           </md-dialog-actions>
         </md-dialog>
-
-
-
     </div>
 </template>
 
@@ -44,6 +40,7 @@
 
     export default {
         name: 'CheckoutStepper',
+        props: ["payee"],
         components: {
             VoucherAmountOptions,
             BuyerDetails,
@@ -78,16 +75,11 @@
                 this.setDone('third', 'fourth');
             },
 
-            action: function () {
-                // `this` inside methods points to the Vue instance
-                alert('You (' + this.contact.firstName +  ') just helped with spending ' + this.amount +  "€ as" + this.type + '!')
-                // `event` is the native DOM event
-            },
 
             setDone (id, index) {
-                this[id] = true
+                this[id] = true;
 
-                this.secondStepError = null
+                this.secondStepError = null;
 
                 if (index) {
                     this.active = index
